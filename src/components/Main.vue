@@ -1,7 +1,7 @@
 <template>
   <section>
       <div class="row .bg-dark.bg-gradient">
-          <div class="col-5">
+          <div v-for="List in List" :key="List" class="col-5">
 
           </div>
       </div>
@@ -12,6 +12,7 @@
 import axios from 'axios';
 
 export default {
+    name:'List',
     data(){
         return{
             apiURL:'https://flynn.boolean.careers/exercises/api/array/music',
@@ -25,8 +26,12 @@ export default {
         getList(){
             axios
             .get(this.apiURL)
-            .then(res => {
-                console.log(res.data);
+            .then(response => {
+                this.List=response.data;
+                console.log(this.List)
+            })
+            .catch(error=>{
+                console.log('errore',error)
             })
         }
     }
