@@ -1,6 +1,6 @@
 <template>
   <header class=" bg-dark bg-gradient">
-      <img class="w-25 p-3 " src="@/assets/logo.png" alt="">
+      <img class="logo" src="@/assets/logo.png" alt="">
   </header>
 </template>
 
@@ -11,5 +11,9 @@ export default {
 </script>
 
 <style>
-
+.logo{
+  width: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 </style>

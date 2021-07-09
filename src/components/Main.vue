@@ -1,8 +1,9 @@
 <template>
   <section>
-      <div class="row row-cols-2  bg-info bg-gradient w-auto p-3  ">
+      <div class="row row-cols-5  bg-secondary bg-gradient w-auto p-3  ">
           <div v-for="(song,index) in List" :key="index" class="col">
-              {{ index.title }} 
+              <img :src="song.poster" alt="">
+              <nome :details="song" />
           </div>
       </div>
   </section>
@@ -10,10 +11,13 @@
 
 <script>
 import axios from 'axios';
-
+import Nome from '@/components/main.vue'
 
 export default {
     name:'List',
+    components:{
+        Nome
+    },
     data(){
         return{
             apiURL:'https://flynn.boolean.careers/exercises/api/array/music',
@@ -27,9 +31,9 @@ export default {
         getList(){
             axios
             .get(this.apiURL)
-            .then(response => {
-                console.log(response.data)
-                this.List=response.data;
+            .then(res => {
+                console.log(res.data)
+                this.List=res.data.response;
                 console.log(this.List)
             })
             .catch(error=>{
@@ -41,5 +45,7 @@ export default {
 </script>
 
 <style>
-
+img{
+    width: 150px;
+}
 </style>
