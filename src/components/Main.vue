@@ -1,8 +1,8 @@
 <template>
   <section>
-      <div class="row .bg-dark.bg-gradient">
-          <div v-for="List in List" :key="List" class="col-5">
-
+      <div class="row row-cols-2  bg-info bg-gradient w-auto p-3  ">
+          <div v-for="(song,index) in List" :key="index" class="col">
+              {{ index.title }} 
           </div>
       </div>
   </section>
@@ -11,12 +11,13 @@
 <script>
 import axios from 'axios';
 
+
 export default {
     name:'List',
     data(){
         return{
             apiURL:'https://flynn.boolean.careers/exercises/api/array/music',
-            List : []
+            List : ''
         }
     },
     created(){
@@ -27,6 +28,7 @@ export default {
             axios
             .get(this.apiURL)
             .then(response => {
+                console.log(response.data)
                 this.List=response.data;
                 console.log(this.List)
             })
