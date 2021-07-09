@@ -1,6 +1,7 @@
 <template>
   <div>
-      <h1>{{details.title}}</h1>
+      <img :src="details.poster" alt="">
+      <h3>{{details.title}}</h3>
       <div>{{details.author}}</div>
       <div>{{details.year}}</div>
   </div>

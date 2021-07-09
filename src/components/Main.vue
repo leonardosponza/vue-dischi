@@ -1,9 +1,8 @@
 <template>
   <section>
-      <div class="row row-cols-5  bg-secondary bg-gradient w-auto p-3  ">
-          <div v-for="(song,index) in List" :key="index" class="col">
-              <img :src="song.poster" alt="">
-              <nome :details="song" />
+      <div  class=" pagina row row-cols-5  bg-secondary bg-gradient text-center">
+          <div v-for="(song,index) in List" :key="index" class="col">              
+              <Nome :details="song" />
           </div>
       </div>
   </section>
@@ -11,7 +10,7 @@
 
 <script>
 import axios from 'axios';
-import Nome from '@/components/main.vue'
+import Nome from './Nome.vue';
 
 export default {
     name:'List',
@@ -47,5 +46,9 @@ export default {
 <style>
 img{
     width: 150px;
+    margin-top: 50px;
+}
+.pagina{
+    height: 95vh;
 }
 </style>
